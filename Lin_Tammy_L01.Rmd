@@ -20,24 +20,33 @@ When completing the following questions ensure that that your solutions are clea
 ### Question 1
 
 Provide a brief outline/overview of the steps involved in a supervised machine learning process. Could provide this as a bulleted list. 
+<br><br>
+
+**Answer:**
+
+* Exploratory Data Analysis: Numerical analysis and visualization of data to lead to more questions and side-quests.
+* Feature engineering: Creating model terms to accurately model the observed data.
+* Model tuning and selection: Generating a variety of model, performing parameter tuning and resampling.
+* Model evaluation: Assessing model performance metrics, examining residual plots, and conducting other EDA analyses.
 
 <br>
 
 ### Question 2
 
 Explain the difference between supervised and unsupervised learning.
-
+<br>
+**Answer:** Supervised models have an outcome variable, with two main subcategories (regression and classification) that respectively predicts numeric and qualitative outcomes. Unsupervised models learn patterns, clusters, and other data characteristics but lack an outcome.
 <br>
 
 ### Question 3 
 
 In general, we can classify a model by its purpose into 1 of the 3 categories below. Provide a brief description of the goals of these model classes.
 
-1. Descriptive Models: **YOUR DESCRIPTION**
+1. Descriptive Models: Descriptive models describe and illustrate characteristics of data, and visualize trends and artifacts. 
 
-2. Inferential Models: **YOUR DESCRIPTION**
+2. Inferential Models: Inferential models produce a decision for a research question or tests a specific hypothesis, mostly using statistical tests.
 
-3. Predictive Models: **YOUR DESCRIPTION**
+3. Predictive Models: Predictive models try to produce predicted values with the highest possible fidelity to the true value of the data.
 
 <br>
 
@@ -47,74 +56,90 @@ We can further describe/classify predictive models by how they were derived or d
 
 #### Part A
 What does it mean to be a mechanistic model?
-
+<br>
+**Answer:** Mechanistic models could be derived using first principles to produce a model equation that is dependent on assumptions. With mechanistic models, it is easy to make data-driven statements about how well the model performs based on how well it predicts the existing data.
 
 #### Part B
 What does it mean to be an empirically driven model?
-
+<br>
+**Answer:** Empirically driven models are created with more vague assumptions and fall into the machine learning category. No theoretical or probabilistic assumptions are made, as the primary method of evaluating model appropriateness is to assess its accuracy using existing data. 
 
 #### Part C
 How does the mechanistic and empirically driven model terminology relate to the parametric and nonparametric model terminology? 
+<br>
+**Answer:** Parametric models require determining and tuning parameters, and are dependent on the assumptions about the functional form of the models (e.g. linear regression). Mechanistic models are considered parametric. 
+<br><br>
+Nonparametric models can be seen as function approximation that gets as close to the data points as possible, and avoids the assumption of a particular functional form. Empirically driven models are nonparametric.
 
 
 #### Part D
 In general, is a mechanistic or empirically driven model easier to understand? Explain.
-
+<br>
+**Answer:** Mechanistic models are more interpretable, especially when the goal is to find inference. They are much easier to fit, because they only require the estimation of a set of parameters as the model is identified prior as linear. For nonparametric models like the empirically driven ones, we would need to estimate an arbitrary function, which is a more difficult task.
 
 #### Part E
 How does mechanistic and empirically driven model terminology relate to the idea of model flexibility? That is, which would be more or less flexible than the other.
+<br>
+**Answer:** Empirically driven models have more flexibility, since they are created with more vague assumptions. This way, they have the potential to fit a wider range of possible shapes for the actual or true functions. Mechanistic models which often follow a linear functional form can sometimes be very different from the true function such that it will not fit the data well.
 
 
 #### Part F
 Describe the bias-variance trade-off when considering the use of a mechanistic or empirically driven model. 
-
 <br>
+**Answer:** Mechanistic models are low in complexity since they have more upfront model assumptions. The less complex the model is, the greater the bias because the model is less responsive to data. Empirically driven models are more complex, since they depend more on the input data as opposed to assumptions. The higher the complexity, the greater the variance, because a new data point may change the model drastically due to overfitting. The optimal model would aim to get as much error explained without overfitting such that the bias-variance trade-off is at its loweset point.
 
 ### Question 5 
 
 Explain the difference between a regression and classification machine learning (ML) problems.
-
 <br>
+**Answer:** Regression problems look for the prediction of a numeric outcome, while classification problems ask for the prediction of an outcome that is an ordered or unordered set of qualitative values. 
 
 ### Question 6 
 
 When splitting the data, why is it useful to stratify by the outcome/target variable? 
-
 <br>
+**Answer:** Stratification is useful when there is a dramatic class imbalance in classification problems, when one class occurs much less frequently than others. With class imbalance, simple random sampling might allocate these infrequent samples disproportionately into training and testing data sets. Stratification keeps the distributions of the outcome similar between training and testing sets. It conducts the train/test split separately within each class before subsamples are combined into the overall training and testing set. For stratification in regression problems, the outcome data are artificially binned into quartiles such that stratified sampling is conducted four separate times.
 
 ### Question 7 
 
 Briefly describe how v-fold cross validation with repeats is used to estimate test RMSE. Also provide an explanation of why we use it. 
-
 <br>
+**Answer:** In V-fold cross validation, the data is randomly partitioned into V sets of equal-sized folds to be held out for assessment statistics for one iteration each, while the other folds are substrate for the model. The iteration process continues until every fold is used to produce an estimate test RMSE. We use this  because the final estimate RMSE for this model is the average of V replicates of the RMSE, and has good generalization properties. 
 
 ### Question 8
 
 When might we use a bootstrap resampling procedure instead of v-fold cross validation to estimate test RMSE?
-
 <br>
+**Answer:** We use bootstrap resampling when approximating a sampling distribution of statistics whose theoretical properties are intractable. Unlike cross validation, bootstrap samples produce RMSE estimates with a low variance but signifant pessimistic bias, such that they tend to estimate the value to be less than the % of true accuracy.  
 
 ### Question 9 
 
 Briefly describe model tuning and why we use it.
-
 <br>
+**Answer:** Models often have parameters with unknown values that have to be estimated for prediction. Tuning parameters are often found in machine learning models, such the number of boosting iterations or number of hidden units that require tuning for optimization. 
 
 ### Question 10 
 
 What are two common performance metrics when dealing with a regression ML problem?
+<br>
+**Answer:** RMSE and R-squared.
+<br><br>
 
 What are two common performance metrics when dealing with a classification ML problem?
-
 <br>
+**Answer:** Sensitivity and specificity.
 
 ### Question 11
 
 A political candidate's campaign has detailed voter history data for their constituents. The campaign is interested in two questions:
 
 1. Given a voter's profile/data how likely is it that they will vote in favor of the candidate?
+<br>
+**Answer:** This question is predictive, as it has to do with producing a prediction of the likelihood that voters who will vote for the candidate.
 
-1. How would a voter's likelihood of support for the candidate change if they had personal contact with the candidate?
+2. How would a voter's likelihood of support for the candidate change if they had personal contact with the candidate?
+<br>
+**Answer:** This question is inferential, as this tests the hypothesis of the way a voter's support will change with the factor of contact with the candidate, and would require statistical testing.
 
 Classify each question/problem as either prediction or inferential. Explain your reasoning for each.
 
