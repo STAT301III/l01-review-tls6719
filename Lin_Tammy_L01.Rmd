@@ -147,4 +147,5 @@ Classify each question/problem as either prediction or inferential. Explain your
 
 ## Github Repo Link
 
-[YOUR GITHUB URL](TEXT FOR YOUR GITHUB URL){target="_blank"}
+[https://github.com/STAT301III/l01-review-tls6719.git](TEXT FOR YOUR GITHUB URL){target="_blank"}
+
